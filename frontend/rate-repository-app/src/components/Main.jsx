@@ -6,16 +6,20 @@ import AppBar from './AppBar';
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: Constants.statusBarHeight,
-        flexGrow: 1,
-        flexShrink: 1,
-        backgroundColor: 'orange'
+
+
+        backgroundColor: '#e1e4e8',
+        display: 'flex',
+        flexDirection: 'column',
+
+
+
     },
 });
 
 const Main = () => {
     return (
-        <View >
+        <View style={styles.container} >
             <AppBar />
             <RepositoryList />
         </View>
