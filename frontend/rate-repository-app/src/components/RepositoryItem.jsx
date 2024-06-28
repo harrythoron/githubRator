@@ -37,7 +37,7 @@ function roundNum(num) {
 }
 
 const RepositoryItem = ({ item }) => {
-    console.log('item-', item);
+
 
     return (
         <View style={styles.mainContainer}>
