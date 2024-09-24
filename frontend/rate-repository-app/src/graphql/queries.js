@@ -24,3 +24,11 @@ query GET_REPOSITORIES {
 
 `
 
+export const USER_EXIST = gql`
+  query {
+    me {
+      id
+      username
+    }
+  }
+`;

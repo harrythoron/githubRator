@@ -7,3 +7,4 @@ mutation sign_in($credentials: AuthenticateInput!) {
     }
   }
 `
+

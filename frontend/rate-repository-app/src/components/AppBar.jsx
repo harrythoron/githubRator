@@ -1,7 +1,10 @@
 import { View, StyleSheet, Pressable, ScrollView } from 'react-native';
+import { useQuery, useApolloClient } from "@apollo/client";
+import { USER_EXIST } from '../graphql/queries';
 import { Link } from 'react-router-native';
 import Constants from 'expo-constants';
 import CustomText from './Text';
+import useAuthStorage from '../hooks/useAuthStorage';
 
 const styles = StyleSheet.create({
     container: {
@@ -39,6 +42,18 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+    const { data } = useQuery(USER_EXIST);
+    const apolloClient = useApolloClient();
+    const authStorage = useAuthStorage()
+    console.log('appbar--', data);
+
+
+
+    const signOut = () => {
+        authStorage.removeAccessToken()
+        apolloClient.resetStore()
+    }
+
     return (
 
         <View style={styles.container}>
@@ -48,9 +63,18 @@ const AppBar = () => {
                     <Link to='/'>
                         <CustomText style={{ color: '#e6ebf2' }} fontWeight='bold'>Repositories</CustomText>
                     </Link>
-                    <Link to='/signin'>
-                        <CustomText style={{ color: '#e6ebf2', marginRight: 10 }} fontWeight='bold'>Sign in</CustomText>
-                    </Link>
+                    {data?.me === null ?
+                        <Link to='/signin'>
+                            <CustomText style={{ color: '#e6ebf2', marginRight: 10 }} fontWeight='bold'>Sign in</CustomText>
+                        </Link>
+                        :
+                        <Pressable onPress={signOut}>
+                            <CustomText style={{ color: '#e6ebf2', marginRight: 10 }} fontWeight='bold'>Sign Out</CustomText>
+                        </Pressable>
+                    }
+
+
+
 
                 </View>
 

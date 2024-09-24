@@ -22,3 +22,5 @@ class AuthStorage {
         await AsyncStorage.removeItem(`${this.namespace}`);
     }
 }
+
+export default AuthStorage;
