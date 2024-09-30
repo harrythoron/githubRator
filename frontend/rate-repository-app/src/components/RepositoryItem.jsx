@@ -40,34 +40,34 @@ const RepositoryItem = ({ item }) => {
 
 
     return (
-        <View style={styles.mainContainer}>
+        <View testID="repositoryItem" style={styles.mainContainer}>
             <View style={styles.nameImgContainer}>
-                <Image style={{ height: 50, width: 50, borderRadius: 5 }} source={{ uri: item.ownerAvatarUrl }} />
+                <Image testID="avatar" style={{ height: 50, width: 50, borderRadius: 5 }} source={{ uri: item.ownerAvatarUrl }} />
                 <View style={styles.nameContainer}>
-                    <CustomText fontWeight='bold'>{item.fullName}</CustomText>
+                    <CustomText testID="fullName" fontWeight='bold'>{item.fullName}</CustomText>
 
-                    <CustomText style={{ paddingRight: 10 }}>{item.description}</CustomText>
-                    <CustomText style={{ backgroundColor: '#0366d6', alignSelf: 'flex-start', color: 'white', padding: 5, borderRadius: 5 }}>{item.language}</CustomText>
+                    <CustomText testID="description" style={{ paddingRight: 10 }}>{item.description}</CustomText>
+                    <CustomText testID="language" style={{ backgroundColor: '#0366d6', alignSelf: 'flex-start', color: 'white', padding: 5, borderRadius: 5 }}>{item.language}</CustomText>
                 </View>
             </View>
             <View style={styles.allRatingsContainer}>
                 <View>
-                    <CustomText fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.stargazersCount)}</CustomText>
+                    <CustomText testID="starsCount" fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.stargazersCount)}</CustomText>
                     <CustomText style={{ textAlign: 'center' }}>Stars</CustomText>
 
                 </View>
                 <View>
-                    <CustomText fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.forksCount)}</CustomText>
+                    <CustomText testID="forksCount" fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.forksCount)}</CustomText>
                     <CustomText style={{ textAlign: 'center' }}>Forks</CustomText>
 
                 </View>
 
                 <View>
-                    <CustomText fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.reviewCount)}</CustomText>
+                    <CustomText testID="reviewCount" fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.reviewCount)}</CustomText>
                     <CustomText style={{ textAlign: 'center' }}>Reviews</CustomText>
                 </View>
                 <View>
-                    <CustomText fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.ratingAverage)}</CustomText>
+                    <CustomText testID="rating" fontWeight='bold' style={{ textAlign: 'center' }}>{roundNum(item.ratingAverage)}</CustomText>
                     <CustomText style={{ textAlign: 'center' }}>Rating</CustomText>
 
                 </View>
